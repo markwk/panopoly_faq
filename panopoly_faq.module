@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Panopoly FAQ feature.
+ */
+
+include_once 'panopoly_faq.features.inc';
