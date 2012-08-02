@@ -97,15 +97,15 @@ function panopoly_faq_default_page_manager_pages() {
         'widget_title' => '',
         'items_per_page' => '0',
       ),
-      'view_mode' => 'teaser',
-      'widget_title' => '',
-      'items_per_page' => '0',
-      'view_settings' => 'fields',
       'context' => array(
         0 => 'empty',
       ),
       'override_title' => 0,
       'override_title_text' => '',
+      'view_mode' => 'teaser',
+      'widget_title' => '',
+      'items_per_page' => '0',
+      'view_settings' => 'fields',
     );
     $pane->cache = array();
     $pane->style = array();
