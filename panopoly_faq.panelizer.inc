@@ -20,7 +20,7 @@ function panopoly_faq_panelizer_defaults() {
   $panelizer->no_blocks = FALSE;
   $panelizer->css_id = 'faq_item_panel';
   $panelizer->css = '';
-  $panelizer->pipeline = 'standard';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->did = 3;
@@ -51,16 +51,18 @@ function panopoly_faq_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'hidden',
       'formatter' => 'image',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'image_style' => '',
+        'image_style' => 'panopoly_image_half',
         'image_link' => '',
       ),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
