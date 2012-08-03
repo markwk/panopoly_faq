@@ -140,13 +140,18 @@ function panopoly_faq_panelizer_defaults() {
       'exposed' => array(
         'sort_by' => 'created',
         'sort_order' => 'DESC',
-        'widget_title' => 'Other Frequently Asked Questions',
+        'widget_title' => 'Other Questions',
         'items_per_page' => '0',
       ),
       'view_mode' => 'teaser',
-      'widget_title' => 'Other Frequently Asked Questions',
+      'widget_title' => 'Other Questions',
       'items_per_page' => '0',
       'view_settings' => 'fields',
+      'context' => array(
+        0 => 'empty',
+      ),
+      'override_title' => '',
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
