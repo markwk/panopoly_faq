@@ -1,0 +1,9 @@
+name = Panopoly FAQ Demo
+description = Demonstration content for the Panopoly FAQ app
+core = 7.x
+package = Panopoly Demos
+dependencies[] = panopoly_faq
+features[content][] = panopoly-faq-demo-0
+features[content][] = panopoly-faq-demo-1
+features[content][] = panopoly-faq-demo-2
+features[features_api][] = api:1
