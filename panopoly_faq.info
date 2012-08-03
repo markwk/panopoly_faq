@@ -21,6 +21,7 @@ features[field][] = node-panopoly_faq-field_featured_image
 features[node][] = panopoly_faq
 features[page_manager_pages][] = panopoly_faq
 features[panelizer_defaults][] = node:panopoly_faq:default
+features[panelizer_defaults][] = node:panopoly_faq:default:default
 features[variable][] = field_bundle_settings_node__panopoly_faq
 features[variable][] = menu_options_panopoly_faq
 features[variable][] = menu_parent_panopoly_faq
