@@ -84,6 +84,41 @@ function panopoly_faq_default_page_manager_pages() {
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
+    $pane->subtype = 'panopoly_faq-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'fields_override' => array(
+        'field_featured_image' => 1,
+        'title' => 1,
+        'body' => 1,
+      ),
+      'exposed' => array(
+        'title' => 'Why are oranges orange?',
+        'widget_title' => 'Featured Question',
+      ),
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => '',
+      'override_title_text' => '',
+      'view_mode' => 'featured',
+      'widget_title' => 'Featured Question',
+      'items_per_page' => NULL,
+      'view_settings' => 'nodes',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-1'] = $pane;
+    $display->panels['contentmain'][0] = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
+    $pane->panel = 'contentmain';
+    $pane->type = 'views_panes';
     $pane->subtype = 'panopoly_faq-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -96,7 +131,7 @@ function panopoly_faq_default_page_manager_pages() {
       'exposed' => array(
         'sort_by' => 'created',
         'sort_order' => 'DESC',
-        'widget_title' => '',
+        'widget_title' => 'All Questions and Answers',
         'items_per_page' => '0',
       ),
       'context' => array(
@@ -105,7 +140,7 @@ function panopoly_faq_default_page_manager_pages() {
       'override_title' => 0,
       'override_title_text' => '',
       'view_mode' => 'teaser',
-      'widget_title' => '',
+      'widget_title' => 'All Questions and Answers',
       'items_per_page' => '0',
       'view_settings' => 'fields',
     );
@@ -113,12 +148,12 @@ function panopoly_faq_default_page_manager_pages() {
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
+    $display->content['new-2'] = $pane;
+    $display->panels['contentmain'][1] = 'new-2';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-3';
     $pane->panel = 'sidebar';
     $pane->type = 'views_panes';
     $pane->subtype = 'panopoly_faq-demo_listing';
@@ -151,8 +186,8 @@ function panopoly_faq_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['sidebar'][0] = 'new-2';
+    $display->content['new-3'] = $pane;
+    $display->panels['sidebar'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
