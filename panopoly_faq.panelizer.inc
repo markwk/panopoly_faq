@@ -23,7 +23,7 @@ function panopoly_faq_panelizer_defaults() {
   $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
-  $panelizer->did = 3;
+  $panelizer->did = 0;
   $panelizer->access = array();
   $panelizer->view_mode = 'page_manager';
   $panelizer->css_class = '';
@@ -183,7 +183,7 @@ function panopoly_faq_panelizer_defaults() {
   $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
-  $panelizer->did = 5;
+  $panelizer->did = 0;
   $panelizer->access = array();
   $panelizer->view_mode = 'default';
   $panelizer->css_class = '';
@@ -343,7 +343,7 @@ function panopoly_faq_panelizer_defaults() {
   $panelizer->pipeline = 'standard';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
-  $panelizer->did = 8;
+  $panelizer->did = 0;
   $panelizer->access = array();
   $panelizer->view_mode = 'featured';
   $panelizer->css_class = 'faq-featured-pane';
