@@ -5,3 +5,12 @@
  */
 
 include_once 'panopoly_faq.features.inc';
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function panopoly_faq_apps_app_info() {
+  return array(
+    'demo content module' => 'panopoly_faq_democontent',
+  );
+}
