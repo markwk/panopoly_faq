@@ -130,11 +130,11 @@ function panopoly_faq_default_page_manager_pages() {
       'exposed' => array(
         'sort_by' => 'created',
         'sort_order' => 'DESC',
-        'widget_title' => 'Frequently Asked Questions',
+        'widget_title' => 'Other Questions',
         'items_per_page' => '0',
       ),
       'view_mode' => 'teaser',
-      'widget_title' => 'Frequently Asked Questions',
+      'widget_title' => 'Other Questions',
       'items_per_page' => '0',
       'view_settings' => 'fields',
       'context' => array(
