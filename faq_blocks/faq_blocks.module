@@ -1,0 +1,67 @@
+<?php
+
+function faq_blocks_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'taxonomy_form_vocabulary' && isset($form['#vocabulary'])) {
+    $form['faq_container'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('FAQ Groups'),
+    );
+
+    $enabled_vocabularies = variable_get('faq_blocks_enabled_vocabularies', array());
+
+    $form['faq_container']['faq_blocks_enabled'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('This vocabulary represents FAQ Groups'),
+      '#default_value' => (boolean)$enabled_vocabularies[$form['#vocabulary']->machine_name],
+    );
+
+    array_unshift($form['#submit'], 'faq_blocks_taxonomy_form_vocabulary_submit');
+  }
+}
+
+function faq_blocks_taxonomy_form_vocabulary_submit($form, &$form_state) {
+  $form_data = $form_state['values'];
+
+  $enabled_vocabularies = variable_get('faq_blocks_enabled_vocabularies', array());
+  $enabled_vocabularies[$form_data['machine_name']] = (boolean)$form_data['faq_blocks_enabled'];
+
+  variable_set('faq_blocks_enabled_vocabularies', $enabled_vocabularies);
+}
+
+function faq_blocks_block_info() {
+  $blocks = array();
+
+  $enabled_vocabularies = variable_get('faq_blocks_enabled_vocabularies', array());
+  if(!empty($enabled_vocabularies) && is_array($enabled_vocabularies)) {
+    foreach($enabled_vocabularies as $machine_name => $enabled) {
+      if(!(boolean)$enabled) continue;
+
+      $vocabularies = taxonomy_vocabulary_get_names();
+      $vocabulary = $vocabularies[$machine_name];
+      if(empty($vocabulary)) continue;
+
+      $terms = taxonomy_get_tree($vocabulary->vid, 0, NULL, FALSE);
+      if(!empty($terms) && is_array($terms)) {
+        foreach($terms as $term) {
+          $blocks[$term->tid] = array(
+            'info' => t('[FAQ :: Group] - !title', array('!title' => $term->name)),
+            'cache' => DRUPAL_CACHE_GLOBAL,
+          );
+        }
+      }
+    }
+  }
+
+  return $blocks;
+}
+
+function faq_blocks_block_view($delta = '') {
+  if(!is_numeric($delta)) return NULL;
+
+  $block = array();
+
+  $block['subject'] = '<none>';
+  $block['content'] = views_embed_view('faq', 'faq_group_renderer', $delta);
+
+  return $block;
+}

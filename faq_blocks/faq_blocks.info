@@ -1,0 +1,5 @@
+name = FAQ blocks
+description = Provides blocks with FAQ questions for each marked FAQ Group node.
+core = 7.x
+package = "Custom"
+dependencies[] = block
