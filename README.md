@@ -38,4 +38,5 @@ Advanced Usage: Understanding Structure of FAQ
 ---------------------
 
 * Panopoly FAQ feature uses taxonomy terms to create "FAQ groupings," so in order to remove the display of a FAQ grouping go to admin/structure/taxonomy/faq_group and click "edit" next to the specific term and "uncheck" the "Show this group on FAQ page"
-
+* Adding FAQ Groupings to various pages and area, Panopoly FAQ uses Panels and Panelizer to do some of its magic. As such, if you are using a Panopoly-powered site, you should be be able to add these blocks to various areas of your site. With Panelizer enabled, lick "Customize this page" and after click FAQ group to add a FAQ grouping to that the particular page. 
+* In order to various mixing and matching, you can create a simple page and add different FAQ groupings as needed. 
