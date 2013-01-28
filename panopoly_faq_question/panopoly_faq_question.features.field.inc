@@ -97,6 +97,9 @@ function panopoly_faq_question_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_faq_group',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'taxonomy_term_data' => array(
           'columns' => array(
@@ -273,11 +276,85 @@ function panopoly_faq_question_field_default_fields() {
     ),
   );
 
+  // Exported field: 'taxonomy_term-faq_group-field_show_on_faq_page'.
+  $fields['taxonomy_term-faq_group-field_show_on_faq_page'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_show_on_faq_page',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Show this group on FAQ page',
+          1 => 'Show this group on FAQ page',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'faq_group',
+      'default_value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 0,
+        ),
+        'featured' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'field_show_on_faq_page',
+      'label' => 'Show on FAQ page',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 0,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('FAQ Answer');
   t('FAQ Group');
   t('FAQ Question');
+  t('Show on FAQ page');
 
   return $fields;
 }

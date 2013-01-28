@@ -1,0 +1,6 @@
+name = FAQ Widgets
+description = Provides panopoly widgets for rendering FAQ groups.
+core = 7.x
+package = "Custom"
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_faq_question

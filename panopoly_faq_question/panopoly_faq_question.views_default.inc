@@ -27,7 +27,8 @@ function panopoly_faq_question_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
@@ -91,10 +92,58 @@ function panopoly_faq_question_views_default_views() {
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_manage_order';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_arguments_php'] = 'dsm($data);';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'faq_group' => 'faq_group',
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'reverse_field_faq_group_node';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'faq' => 'faq',
+  );
+  /* Filter criterion: Taxonomy term: Show on FAQ page (field_show_on_faq_page) */
+  $handler->display->display_options['filters']['field_show_on_faq_page_value']['id'] = 'field_show_on_faq_page_value';
+  $handler->display->display_options['filters']['field_show_on_faq_page_value']['table'] = 'field_data_field_show_on_faq_page';
+  $handler->display->display_options['filters']['field_show_on_faq_page_value']['field'] = 'field_show_on_faq_page_value';
+  $handler->display->display_options['filters']['field_show_on_faq_page_value']['value'] = array(
+    1 => '1',
+  );
 
   /* Display: FAQ Group Renderer */
   $handler = $view->new_display('panel_pane', 'FAQ Group Renderer', 'faq_group_renderer');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Content: FAQ Question */
+  $handler->display->display_options['fields']['field_faq_question']['id'] = 'field_faq_question';
+  $handler->display->display_options['fields']['field_faq_question']['table'] = 'field_data_field_faq_question';
+  $handler->display->display_options['fields']['field_faq_question']['field'] = 'field_faq_question';
+  $handler->display->display_options['fields']['field_faq_question']['relationship'] = 'reverse_field_faq_group_node';
+  $handler->display->display_options['fields']['field_faq_question']['label'] = '';
+  $handler->display->display_options['fields']['field_faq_question']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_faq_question']['element_wrapper_class'] = 'question';
+  /* Field: Content: FAQ Answer */
+  $handler->display->display_options['fields']['field_faq_answer']['id'] = 'field_faq_answer';
+  $handler->display->display_options['fields']['field_faq_answer']['table'] = 'field_data_field_faq_answer';
+  $handler->display->display_options['fields']['field_faq_answer']['field'] = 'field_faq_answer';
+  $handler->display->display_options['fields']['field_faq_answer']['relationship'] = 'reverse_field_faq_group_node';
+  $handler->display->display_options['fields']['field_faq_answer']['label'] = '';
+  $handler->display->display_options['fields']['field_faq_answer']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_faq_answer']['element_wrapper_class'] = 'answer';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Draggableviews: Weight */
   $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
@@ -114,6 +163,23 @@ function panopoly_faq_question_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['tid']['break_phrase'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'faq_group' => 'faq_group',
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'reverse_field_faq_group_node';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'faq' => 'faq',
+  );
   $handler->display->display_options['argument_input'] = array(
     'tid' => array(
       'type' => 'user',
