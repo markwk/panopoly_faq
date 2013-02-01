@@ -89,7 +89,7 @@ function panopoly_faq_question_views_default_views() {
   $handler->display->display_options['sorts']['weight_1']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight_1']['relationship'] = 'reverse_field_faq_group_node';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_manage_order';
+  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_page_manage_order';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_arguments_php'] = 'dsm($data);';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -120,6 +120,20 @@ function panopoly_faq_question_views_default_views() {
   /* Display: FAQ Group Renderer */
   $handler = $view->new_display('panel_pane', 'FAQ Group Renderer', 'faq_group_renderer');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'name',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['class'] = 'faq-list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -150,7 +164,7 @@ function panopoly_faq_question_views_default_views() {
   $handler->display->display_options['sorts']['weight_1']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight_1']['relationship'] = 'reverse_field_faq_group_node';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:panel_pane_1';
+  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_manage_order';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Taxonomy term: Term ID */
@@ -421,6 +435,7 @@ if(is_numeric($arg)) return $arg;';
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: FAQ Page Manage Order */
   $handler = $view->new_display('panel_pane', 'FAQ Page Manage Order', 'faq_page_manage_order');
@@ -500,6 +515,23 @@ if(is_numeric($arg)) return $arg;';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'self';
   $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'faq_group' => 'faq_group',
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'reverse_field_faq_group_node';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'faq' => 'faq',
+  );
   $export['faq'] = $view;
 
   return $export;

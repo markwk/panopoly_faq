@@ -50,7 +50,7 @@ function panopoly_faq_question_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'featured' => array(
           'label' => 'above',
@@ -84,7 +84,7 @@ function panopoly_faq_question_field_default_fields() {
           'rows' => '3',
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -143,16 +143,16 @@ function panopoly_faq_question_field_default_fields() {
       'default_value' => NULL,
       'default_value_function' => 'entityreference_prepopulate_field_default_value',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'This the grouping where you question will be placed. ',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'entityreference',
           'settings' => array(
-            'link' => FALSE,
+            'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'featured' => array(
           'label' => 'above',
@@ -169,7 +169,7 @@ function panopoly_faq_question_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_faq_group',
-      'label' => 'FAQ Group',
+      'label' => 'FAQ Grouping',
       'required' => 1,
       'settings' => array(
         'behaviors' => array(
@@ -192,7 +192,7 @@ function panopoly_faq_question_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -237,7 +237,7 @@ function panopoly_faq_question_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'featured' => array(
           'label' => 'above',
@@ -271,7 +271,7 @@ function panopoly_faq_question_field_default_fields() {
           'rows' => '3',
         ),
         'type' => 'text_textarea',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -352,9 +352,10 @@ function panopoly_faq_question_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('FAQ Answer');
-  t('FAQ Group');
+  t('FAQ Grouping');
   t('FAQ Question');
   t('Show on FAQ page');
+  t('This the grouping where you question will be placed. ');
 
   return $fields;
 }

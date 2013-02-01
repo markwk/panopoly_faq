@@ -184,6 +184,8 @@ function panopoly_faq_question_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'none',
@@ -239,7 +241,7 @@ function panopoly_faq_question_default_page_manager_pages() {
     $pane->pid = 'new-3';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
-    $pane->subtype = 'faq-panel_pane_1';
+    $pane->subtype = 'faq-faq_manage_order';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -269,40 +271,6 @@ function panopoly_faq_question_default_page_manager_pages() {
     $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['contentmain'][0] = 'new-3';
-    $pane = new stdClass();
-    $pane->pid = 'new-4';
-    $pane->panel = 'contentmain';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'faq-faq_manage_order';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'teaser',
-      'widget_title' => NULL,
-      'items_per_page' => NULL,
-      'exposed' => array(
-        'sort_by' => NULL,
-        'sort_order' => NULL,
-      ),
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'offset' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => NULL,
-      'path' => NULL,
-      'view_settings' => 'fields',
-      'header_type' => 'none',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['contentmain'][1] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -329,6 +297,8 @@ function panopoly_faq_question_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'none',
@@ -381,7 +351,7 @@ function panopoly_faq_question_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-4';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'faq-faq_page_manage_order';
@@ -412,8 +382,8 @@ function panopoly_faq_question_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['contentmain'][0] = 'new-5';
+    $display->content['new-4'] = $pane;
+    $display->panels['contentmain'][0] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

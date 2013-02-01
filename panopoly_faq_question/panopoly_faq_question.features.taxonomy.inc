@@ -13,7 +13,7 @@ function panopoly_faq_question_taxonomy_default_vocabularies() {
       'name' => 'FAQ Group',
       'machine_name' => 'faq_group',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => '1',
       'module' => 'taxonomy',
       'weight' => '0',
     ),
