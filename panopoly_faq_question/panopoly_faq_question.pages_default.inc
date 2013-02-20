@@ -26,6 +26,16 @@ function panopoly_faq_question_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+
+      1 => array(
+      'name' => 'perm',
+      'settings' => array(
+        'perm' => 'administer faq',
+      ),
+      'context' => 'logged-in-user',
+      'not' => FALSE,
+    ),
+
     ),
     'logic' => 'and',
   );
@@ -182,6 +192,16 @@ function panopoly_faq_question_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+
+      1 => array(
+      'name' => 'perm',
+      'settings' => array(
+        'perm' => 'administer faq',
+      ),
+      'context' => 'logged-in-user',
+      'not' => FALSE,
+    ),
+
     ),
     'logic' => 'and',
     'type' => 'none',
@@ -189,7 +209,7 @@ function panopoly_faq_question_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'none',
-    'title' => 'Reorder FAQ',
+    'title' => 'FAQ Management and Reordering',
     'name' => 'management',
     'weight' => '0',
     'parent' => array(
@@ -295,6 +315,16 @@ function panopoly_faq_question_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+
+      1 => array(
+      'name' => 'perm',
+      'settings' => array(
+        'perm' => 'administer faq',
+      ),
+      'context' => 'logged-in-user',
+      'not' => FALSE,
+    ),
+
     ),
     'logic' => 'and',
     'type' => 'none',

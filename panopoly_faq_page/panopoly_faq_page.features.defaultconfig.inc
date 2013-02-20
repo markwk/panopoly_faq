@@ -7,7 +7,7 @@
 /**
  * Implements hook_defaultconfig_features().
  */
-function panopoly_faq_widgets_defaultconfig_features() {
+function panopoly_faq_page_defaultconfig_features() {
   return array(
     'panopoly_faq_widgets' => array(
       'field_default_fields' => 'field_default_fields',
@@ -19,7 +19,7 @@ function panopoly_faq_widgets_defaultconfig_features() {
 /**
  * Implements hook_defaultconfig_field_default_fields().
  */
-function panopoly_faq_widgets_defaultconfig_field_default_fields() {
+function panopoly_faq_page_defaultconfig_field_default_fields() {
   $fields = array();
 
   // Exported field: 'fieldable_panels_pane-faq-field_faq_group'.
@@ -129,7 +129,7 @@ function panopoly_faq_widgets_defaultconfig_field_default_fields() {
 /**
  * Implements hook_defaultconfig_strongarm().
  */
-function panopoly_faq_widgets_defaultconfig_strongarm() {
+function panopoly_faq_page_defaultconfig_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

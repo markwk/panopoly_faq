@@ -7,7 +7,7 @@
 /**
  * Implements hook_panelizer_defaults().
  */
-function panopoly_faq_widgets_panelizer_defaults() {
+function panopoly_faq_page_panelizer_defaults() {
   $export = array();
 
   $panelizer = new stdClass();

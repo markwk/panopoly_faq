@@ -1,5 +1,0 @@
-name = FAQ Expand
-description = Provides some JS to expand/collapse FAQ questions
-core = 7.x
-package = "Custom"
-dependencies[] = views
