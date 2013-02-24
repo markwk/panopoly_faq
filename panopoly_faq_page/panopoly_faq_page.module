@@ -111,6 +111,8 @@ function panopoly_faq_page_menu() {
                 'weight' => 20,
       );
 
+      
+
       return $items;
 }
 
@@ -124,7 +126,7 @@ function panopoly_faq_page_menu_edit_tab_callback($taxonomy_term) {
 }
 
 function panopoly_faq_page_menu_add_question_tab_callback($taxonomy_term) {
-  drupal_goto('node/add/faq',  array('query' => array ('field_faq_group' => 1,) ));
+  drupal_goto('node/add/faq',  array('query' => array ('field_faq_group' => $taxonomy_term->tid,) ));
 }
 
 function panopoly_faq_page_permission() {

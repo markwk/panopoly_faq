@@ -85,12 +85,6 @@ function panopoly_faq_question_views_default_views() {
 $handler = $view->new_display('panel_pane', 'All FAQ Groups', 'all_faq_groups');
 $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
 $handler->display->display_options['defaults']['header'] = FALSE;
-/* Header: Global: Text area */
-$handler->display->display_options['header']['area']['id'] = 'area';
-$handler->display->display_options['header']['area']['table'] = 'views';
-$handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<a href="admin/structure/faq">Edit FAQ</a>';
-$handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
 $handler->display->display_options['defaults']['sorts'] = FALSE;
 /* Sort criterion: Draggableviews: Weight */
 $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
@@ -285,7 +279,7 @@ $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['empty'] = TRUE;
-$handler->display->display_options['header']['area']['content'] = '<a href="/admin/structure/taxonomy/faq_group/add?destination=/admin/structure/faq">Add new group</a>';
+$handler->display->display_options['header']['area']['content'] = '<a href="/admin/structure/taxonomy/faq_group/add">Add new group</a>';
 $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
 $handler->display->display_options['defaults']['footer'] = FALSE;
 /* Footer: Global: Text area */
@@ -318,16 +312,15 @@ $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['tid']['separator'] = '';
 /* Field: Taxonomy term: Name */
-/* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['path'] = 'admin/structure/faq/[tid]';
-  $handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['path_case'] = 'lower';
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['path'] = 'admin/structure/faq/[tid]';
+$handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['path_case'] = 'lower';
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
 /* Field: Global: Custom text */
 $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -414,102 +407,101 @@ $handler->display->display_options['fields']['nothing']['element_label_colon'] =
 
 
   /* Display: FAQ Manage Questions */
-  $handler = $view->new_display('panel_pane', 'FAQ Manage Questions', 'faq_manage_questions');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/faq?destination=/admin/structure/faq/[tid]&field_faq_group=[tid]">Add new question</a>';
-  $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area_1']['id'] = 'area_1';
-  $handler->display->display_options['header']['area_1']['table'] = 'views';
-  $handler->display->display_options['header']['area_1']['field'] = 'area';
-  $handler->display->display_options['header']['area_1']['content'] = '<a href="/admin/structure/faq/reorder/[tid]?destination=/admin/structure/faq/[tid]">Manage Questions and Ordering</a>';
-  $handler->display->display_options['header']['area_1']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
-  $handler->display->display_options['defaults']['empty'] = FALSE;
-    /* Header: Global: Text area */
-  $handler->display->display_options['header']['area_2']['id'] = 'area_1';
-  $handler->display->display_options['header']['area_2']['table'] = 'views';
-  $handler->display->display_options['header']['area_2']['field'] = 'area';
-  $handler->display->display_options['header']['area_2']['content'] = '<a href="/taxonomy/term/[tid]/edit">Edit FAQ Page Details</a>';
-  $handler->display->display_options['header']['area_2']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['header']['area_2']['tokenize'] = TRUE;
-  $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<div></div>';
-  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Term ID */
-  $handler->display->display_options['fields']['tid']['id'] = 'tid';
-  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['tid']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid']['label'] = '';
-  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Content: FAQ Question */
-  $handler->display->display_options['fields']['field_faq_question']['id'] = 'field_faq_question';
-  $handler->display->display_options['fields']['field_faq_question']['table'] = 'field_data_field_faq_question';
-  $handler->display->display_options['fields']['field_faq_question']['field'] = 'field_faq_question';
-  $handler->display->display_options['fields']['field_faq_question']['relationship'] = 'reverse_field_faq_group_node';
-  $handler->display->display_options['fields']['field_faq_question']['label'] = '';
-  $handler->display->display_options['fields']['field_faq_question']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_faq_question']['element_wrapper_class'] = 'question';
-  /* Field: Content: FAQ Answer */
-  $handler->display->display_options['fields']['field_faq_answer']['id'] = 'field_faq_answer';
-  $handler->display->display_options['fields']['field_faq_answer']['table'] = 'field_data_field_faq_answer';
-  $handler->display->display_options['fields']['field_faq_answer']['field'] = 'field_faq_answer';
-  $handler->display->display_options['fields']['field_faq_answer']['relationship'] = 'reverse_field_faq_group_node';
-  $handler->display->display_options['fields']['field_faq_answer']['label'] = '';
-  $handler->display->display_options['fields']['field_faq_answer']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_faq_answer']['element_wrapper_class'] = 'answer';
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Draggableviews: Weight */
-  $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
-  $handler->display->display_options['sorts']['weight_1']['table'] = 'draggableviews_structure';
-  $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
-  $handler->display->display_options['sorts']['weight_1']['relationship'] = 'reverse_field_faq_group_node';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_manage_order';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Taxonomy term: Term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['tid']['default_argument_options']['code'] = '$arg = arg(3);
+$handler = $view->new_display('panel_pane', 'FAQ Manage Questions', 'faq_manage_questions');
+$handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Header: Global: Text area */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['empty'] = TRUE;
+$handler->display->display_options['header']['area']['content'] = '<a href="/node/add/faq?field_faq_group=!1">Add new question</a>';
+$handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+/* Header: Global: Text area */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['content'] = '<a href="/admin/structure/faq/reorder/[tid]?destination=/admin/structure/faq/[tid]">Manage Questions and Ordering</a>';
+$handler->display->display_options['header']['area_1']['format'] = 'panopoly_wysiwyg_text';
+$handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
+/* Header: Global: Text area */
+$handler->display->display_options['header']['area_2']['id'] = 'area_1';
+$handler->display->display_options['header']['area_2']['table'] = 'views';
+$handler->display->display_options['header']['area_2']['field'] = 'area';
+$handler->display->display_options['header']['area_2']['content'] = '<a href="/taxonomy/term/[tid]/edit">Edit FAQ Page Details</a>';
+$handler->display->display_options['header']['area_2']['format'] = 'panopoly_wysiwyg_text';
+$handler->display->display_options['header']['area_2']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['empty'] = FALSE;
+/* No results behavior: Global: Text area */
+$handler->display->display_options['empty']['area']['id'] = 'area';
+$handler->display->display_options['empty']['area']['table'] = 'views';
+$handler->display->display_options['empty']['area']['field'] = 'area';
+$handler->display->display_options['empty']['area']['empty'] = TRUE;
+$handler->display->display_options['empty']['area']['content'] = '<div></div>';
+$handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Field: Taxonomy term: Term ID */
+$handler->display->display_options['fields']['tid']['id'] = 'tid';
+$handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['tid']['field'] = 'tid';
+$handler->display->display_options['fields']['tid']['label'] = '';
+$handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['tid']['separator'] = '';
+/* Field: Taxonomy term: Name */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['exclude'] = TRUE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+/* Field: Content: FAQ Question */
+$handler->display->display_options['fields']['field_faq_question']['id'] = 'field_faq_question';
+$handler->display->display_options['fields']['field_faq_question']['table'] = 'field_data_field_faq_question';
+$handler->display->display_options['fields']['field_faq_question']['field'] = 'field_faq_question';
+$handler->display->display_options['fields']['field_faq_question']['relationship'] = 'reverse_field_faq_group_node';
+$handler->display->display_options['fields']['field_faq_question']['label'] = '';
+$handler->display->display_options['fields']['field_faq_question']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_faq_question']['element_wrapper_class'] = 'question';
+/* Field: Content: FAQ Answer */
+$handler->display->display_options['fields']['field_faq_answer']['id'] = 'field_faq_answer';
+$handler->display->display_options['fields']['field_faq_answer']['table'] = 'field_data_field_faq_answer';
+$handler->display->display_options['fields']['field_faq_answer']['field'] = 'field_faq_answer';
+$handler->display->display_options['fields']['field_faq_answer']['relationship'] = 'reverse_field_faq_group_node';
+$handler->display->display_options['fields']['field_faq_answer']['label'] = '';
+$handler->display->display_options['fields']['field_faq_answer']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_faq_answer']['element_wrapper_class'] = 'answer';
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+/* Sort criterion: Draggableviews: Weight */
+$handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
+$handler->display->display_options['sorts']['weight_1']['table'] = 'draggableviews_structure';
+$handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
+$handler->display->display_options['sorts']['weight_1']['relationship'] = 'reverse_field_faq_group_node';
+$handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'faq:faq_manage_order';
+$handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Contextual filter: Taxonomy term: Term ID */
+$handler->display->display_options['arguments']['tid']['id'] = 'tid';
+$handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['arguments']['tid']['field'] = 'tid';
+$handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+$handler->display->display_options['arguments']['tid']['default_argument_type'] = 'php';
+$handler->display->display_options['arguments']['tid']['default_argument_options']['code'] = '$arg = arg(3);
 if(is_numeric($arg)) return $arg;';
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['argument_input'] = array(
-    'tid' => array(
-      'type' => 'user',
-      'context' => 'entity:commerce_customer_profile.commerce_customer_address',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Taxonomy term: Term ID',
-    ),
-  );
+$handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['argument_input'] = array(
+  'tid' => array(
+    'type' => 'user',
+    'context' => 'entity:commerce_customer_profile.commerce_customer_address',
+    'context_optional' => 0,
+    'panel' => '0',
+    'fixed' => '',
+    'label' => 'Taxonomy term: Term ID',
+  ),
+);
 
   
 
